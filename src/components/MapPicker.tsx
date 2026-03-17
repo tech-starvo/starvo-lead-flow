@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { MapContainer, Marker, TileLayer, useMap, useMapEvents } from "react-leaflet";
+import { useEffect, useRef, useState } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { Locate, MapPin } from "lucide-react";
@@ -19,59 +18,77 @@ interface MapPickerProps {
   onPositionChange: (pos: [number, number]) => void;
 }
 
-function ClickHandler({ onPositionChange }: { onPositionChange: (pos: [number, number]) => void }) {
-  useMapEvents({
-    click(event) {
-      onPositionChange([event.latlng.lat, event.latlng.lng]);
-    },
-  });
+const DEFAULT_CENTER: [number, number] = [-6.2088, 106.8456];
 
-  return null;
-}
+const MapPicker = ({ position, onPositionChange }: MapPickerProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<L.Map | null>(null);
+  const markerRef = useRef<L.Marker | null>(null);
+  const [loading, setLoading] = useState(true);
 
-function MapReadyHandler({ onReady }: { onReady: () => void }) {
-  const map = useMap();
+  useEffect(() => {
+    if (!containerRef.current || mapRef.current) return;
 
-  map.whenReady(() => {
-    onReady();
-  });
+    const map = L.map(containerRef.current, {
+      center: position ?? DEFAULT_CENTER,
+      zoom: 12,
+      zoomControl: true,
+      attributionControl: true,
+    });
 
-  return null;
-}
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
 
-function RecenterButton({ onPositionChange }: { onPositionChange: (pos: [number, number]) => void }) {
-  const map = useMap();
+    map.on("load", () => setLoading(false));
+
+    map.on("click", (event: L.LeafletMouseEvent) => {
+      const nextPosition: [number, number] = [event.latlng.lat, event.latlng.lng];
+      onPositionChange(nextPosition);
+    });
+
+    mapRef.current = map;
+    setLoading(false);
+
+    return () => {
+      map.remove();
+      mapRef.current = null;
+      markerRef.current = null;
+    };
+  }, [onPositionChange, position]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map) return;
+
+    const nextCenter = position ?? DEFAULT_CENTER;
+    map.setView(nextCenter, position ? map.getZoom() : 12);
+
+    if (position) {
+      if (!markerRef.current) {
+        markerRef.current = L.marker(position, { icon: defaultIcon }).addTo(map);
+      } else {
+        markerRef.current.setLatLng(position);
+      }
+    } else if (markerRef.current) {
+      map.removeLayer(markerRef.current);
+      markerRef.current = null;
+    }
+  }, [position]);
 
   const centerOnMe = () => {
-    if (!navigator.geolocation) return;
+    if (!navigator.geolocation || !mapRef.current) return;
 
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         const nextPosition: [number, number] = [coords.latitude, coords.longitude];
         onPositionChange(nextPosition);
-        map.setView(nextPosition, 15);
+        mapRef.current?.setView(nextPosition, 15);
       },
       () => undefined,
       { enableHighAccuracy: true, timeout: 10000 }
     );
   };
-
-  return (
-    <button
-      type="button"
-      onClick={centerOnMe}
-      className="absolute bottom-3 right-3 z-[500] bg-card border border-input rounded-lg p-2.5 shadow-md hover:bg-secondary transition-colors"
-      title="Center on my location"
-      aria-label="Center on my location"
-    >
-      <Locate className="w-4 h-4 text-foreground" />
-    </button>
-  );
-}
-
-const MapPicker = ({ position, onPositionChange }: MapPickerProps) => {
-  const [loading, setLoading] = useState(true);
-  const defaultCenter: [number, number] = [-6.2088, 106.8456];
 
   return (
     <div className="relative w-full h-64 rounded-xl overflow-hidden border-2 border-input bg-muted">
@@ -80,17 +97,16 @@ const MapPicker = ({ position, onPositionChange }: MapPickerProps) => {
           <MapPin className="w-6 h-6 text-muted-foreground" />
         </div>
       )}
-
-      <MapContainer center={position ?? defaultCenter} zoom={12} className="w-full h-full z-10">
-        <MapReadyHandler onReady={() => setLoading(false)} />
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-        />
-        <ClickHandler onPositionChange={onPositionChange} />
-        <RecenterButton onPositionChange={onPositionChange} />
-        {position && <Marker position={position} icon={defaultIcon} />}
-      </MapContainer>
+      <div ref={containerRef} className="w-full h-full" aria-label="Interactive map picker" />
+      <button
+        type="button"
+        onClick={centerOnMe}
+        className="absolute bottom-3 right-3 z-[500] bg-card border border-input rounded-lg p-2.5 shadow-md hover:bg-secondary transition-colors"
+        title="Center on my location"
+        aria-label="Center on my location"
+      >
+        <Locate className="w-4 h-4 text-foreground" />
+      </button>
     </div>
   );
 };
