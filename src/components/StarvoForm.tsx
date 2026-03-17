@@ -235,9 +235,7 @@ const StarvoForm = () => {
           </motion.div>
           <motion.div variants={fadeUp}>
             <FieldLabel id="map" idn="Tandai lokasi di peta" en="Pin location on map" optional />
-            <Suspense fallback={<div className="w-full h-64 bg-muted animate-pulse rounded-xl flex items-center justify-center"><span className="text-muted-foreground text-sm">Loading map...</span></div>}>
-              <MapPicker position={form.mapPosition} onPositionChange={(pos) => set("mapPosition", pos)} />
-            </Suspense>
+            <MapPicker position={form.mapPosition} onPositionChange={(pos) => set("mapPosition", pos)} />
             {form.mapPosition && (
               <p className="text-xs text-muted-foreground mt-2">
                 📍 {form.mapPosition[0].toFixed(5)}, {form.mapPosition[1].toFixed(5)}
