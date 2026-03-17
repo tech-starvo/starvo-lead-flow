@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
 
-interface Choice {
+export interface Choice {
   value: string;
-  idn: string;
-  en: string;
+  label: string;
 }
 
 interface ChoiceGridProps {
@@ -32,8 +31,7 @@ const ChoiceGrid = ({ choices, selected, onSelect, columns = 2, multi = false }:
           data-selected={isSelected(choice.value)}
           onClick={() => onSelect(choice.value)}
         >
-          <span className="text-sm font-semibold text-foreground leading-tight">{choice.idn}</span>
-          <span className="text-[11px] text-muted-foreground mt-0.5">{choice.en}</span>
+          <span className="text-sm font-semibold text-foreground leading-tight">{choice.label}</span>
         </motion.button>
       ))}
     </div>

@@ -1,0 +1,14 @@
+{
+  "name": "Starvo – SPKLU",
+  "short_name": "Starvo",
+  "description": "Starvo – EV charging infrastructure",
+  "start_url": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/starvo-circle-logo.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ]
+}

@@ -2,19 +2,16 @@ import { forwardRef } from "react";
 
 interface FieldLabelProps {
   id: string;
-  idn: string;
-  en: string;
+  label: string;
   optional?: boolean;
+  optionalLabel?: string;
 }
 
-const FieldLabel = forwardRef<HTMLDivElement, FieldLabelProps>(({ id, idn, en, optional }, ref) => (
+const FieldLabel = forwardRef<HTMLDivElement, FieldLabelProps>(({ id, label, optional, optionalLabel }, ref) => (
   <div ref={ref} className="flex flex-col mb-2">
     <label htmlFor={id} className="text-sm font-bold text-foreground">
-      {idn} {optional && <span className="text-muted-foreground font-normal">(Opsional)</span>}
+      {label} {optional && optionalLabel != null && <span className="text-muted-foreground font-normal">({optionalLabel})</span>}
     </label>
-    <span className="text-[11px] uppercase tracking-wider text-muted-foreground font-medium">
-      {en} {optional && <span className="lowercase">(Optional)</span>}
-    </span>
   </div>
 ));
 

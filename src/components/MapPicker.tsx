@@ -19,6 +19,30 @@ interface MapPickerProps {
 }
 
 const DEFAULT_CENTER: [number, number] = [-6.2088, 106.8456];
+const ZOOM_STORAGE_KEY = "starvo-map-zoom";
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 20;
+const DEFAULT_ZOOM = 12;
+
+function getStoredZoom(): number {
+  try {
+    const stored = localStorage.getItem(ZOOM_STORAGE_KEY);
+    if (stored == null) return DEFAULT_ZOOM;
+    const zoom = parseInt(stored, 10);
+    if (Number.isFinite(zoom) && zoom >= MIN_ZOOM && zoom <= MAX_ZOOM) return zoom;
+  } catch {
+    // ignore
+  }
+  return DEFAULT_ZOOM;
+}
+
+function setStoredZoom(zoom: number) {
+  try {
+    localStorage.setItem(ZOOM_STORAGE_KEY, String(Math.round(zoom)));
+  } catch {
+    // ignore
+  }
+}
 
 const MapPicker = ({ position, onPositionChange }: MapPickerProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -29,9 +53,11 @@ const MapPicker = ({ position, onPositionChange }: MapPickerProps) => {
   useEffect(() => {
     if (!containerRef.current || mapRef.current) return;
 
+    const initialZoom = getStoredZoom();
+
     const map = L.map(containerRef.current, {
       center: position ?? DEFAULT_CENTER,
-      zoom: 12,
+      zoom: initialZoom,
       zoomControl: true,
       attributionControl: true,
     });
@@ -41,6 +67,7 @@ const MapPicker = ({ position, onPositionChange }: MapPickerProps) => {
     }).addTo(map);
 
     map.on("load", () => setLoading(false));
+    map.on("zoomend", () => setStoredZoom(map.getZoom()));
 
     map.on("click", (event: L.LeafletMouseEvent) => {
       const nextPosition: [number, number] = [event.latlng.lat, event.latlng.lng];
@@ -62,7 +89,8 @@ const MapPicker = ({ position, onPositionChange }: MapPickerProps) => {
     if (!map) return;
 
     const nextCenter = position ?? DEFAULT_CENTER;
-    map.setView(nextCenter, position ? map.getZoom() : 12);
+    const zoom = map.getZoom();
+    map.setView(nextCenter, position ? zoom : getStoredZoom());
 
     if (position) {
       if (!markerRef.current) {
