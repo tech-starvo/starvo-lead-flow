@@ -1,11 +1,10 @@
-import { useState, Suspense, lazy } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, Zap } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import FieldLabel from "./FieldLabel";
 import ChoiceGrid from "./ChoiceGrid";
 import SectionHeader from "./SectionHeader";
-
-const MapPicker = lazy(() => import("./MapPicker"));
+import MapPicker from "./MapPicker";
 
 interface FormData {
   fullName: string;
