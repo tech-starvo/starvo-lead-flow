@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import StarvoForm from "@/components/StarvoForm";
 import LanguageSelector from "@/components/LanguageSelector";
@@ -15,9 +16,7 @@ const Index = () => {
             <img src="/starvo-circle-logo.png" alt="Starvo" className="w-8 h-8 rounded-lg object-contain" />
             <img src="/starvo-logo.png" alt="Starvo" className="h-6 object-contain hidden sm:block" />
           </div>
-          <div className="flex items-center gap-2">
-            <LanguageSelector />
-          </div>
+          <LanguageSelector />
         </div>
       </header>
 

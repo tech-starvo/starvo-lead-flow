@@ -107,6 +107,45 @@ export type TranslationKeys = {
   ctaPrimary: string;
   ctaSecondary: string;
   footerConsent: string;
+  // Admin (default: Bahasa Indonesia)
+  admin_backToForm: string;
+  admin_leadsTitle: string;
+  admin_loadingLeads: string;
+  admin_noLeadsYet: string;
+  admin_tableRef: string;
+  admin_tableName: string;
+  admin_tableCompany: string;
+  admin_tableWhatsApp: string;
+  admin_tableInterest: string;
+  admin_tableTimeline: string;
+  admin_tableSubmitted: string;
+  admin_backToLeads: string;
+  admin_leadDetailTitle: string;
+  admin_loadingLead: string;
+  admin_leadNotFound: string;
+  admin_reference: string;
+  admin_submittedOn: string;
+  admin_sectionContact: string;
+  admin_sectionInterestPlan: string;
+  admin_sectionLocationDetails: string;
+  admin_sectionTimelineNotes: string;
+  admin_labelFullName: string;
+  admin_labelCompany: string;
+  admin_labelWhatsApp: string;
+  admin_labelEmail: string;
+  admin_labelCity: string;
+  admin_labelInterest: string;
+  admin_labelHasLocation: string;
+  admin_labelLocationType: string;
+  admin_labelBudget: string;
+  admin_labelUnitsNeeded: string;
+  admin_labelChargerType: string;
+  admin_labelAddress: string;
+  admin_labelLandArea: string;
+  admin_viewOnMap: string;
+  admin_labelTimeline: string;
+  admin_labelNotesMessage: string;
+  admin_signInDomainError: string;
 };
 
 const id: TranslationKeys = {
@@ -180,6 +219,44 @@ const id: TranslationKeys = {
   ctaPrimary: "Konsultasi Sekarang",
   ctaSecondary: "Get Consultation",
   footerConsent: "Dengan mengirim formulir ini, Anda menyetujui untuk dihubungi oleh tim Starvo.",
+  admin_backToForm: "Kembali ke formulir",
+  admin_leadsTitle: "Daftar Lead",
+  admin_loadingLeads: "Memuat data lead…",
+  admin_noLeadsYet: "Belum ada lead.",
+  admin_tableRef: "No. Ref",
+  admin_tableName: "Nama",
+  admin_tableCompany: "Perusahaan",
+  admin_tableWhatsApp: "WhatsApp",
+  admin_tableInterest: "Ketertarikan",
+  admin_tableTimeline: "Waktu",
+  admin_tableSubmitted: "Dikirim",
+  admin_backToLeads: "Kembali ke daftar lead",
+  admin_leadDetailTitle: "Detail Lead",
+  admin_loadingLead: "Memuat detail lead…",
+  admin_leadNotFound: "Lead tidak ditemukan.",
+  admin_reference: "Referensi",
+  admin_submittedOn: "Dikirim pada",
+  admin_sectionContact: "Kontak",
+  admin_sectionInterestPlan: "Ketertarikan & Rencana",
+  admin_sectionLocationDetails: "Detail Lokasi",
+  admin_sectionTimelineNotes: "Waktu & Catatan",
+  admin_labelFullName: "Nama lengkap",
+  admin_labelCompany: "Perusahaan",
+  admin_labelWhatsApp: "WhatsApp",
+  admin_labelEmail: "Email",
+  admin_labelCity: "Kota",
+  admin_labelInterest: "Ketertarikan",
+  admin_labelHasLocation: "Sudah punya lokasi?",
+  admin_labelLocationType: "Jenis lokasi",
+  admin_labelBudget: "Estimasi budget",
+  admin_labelUnitsNeeded: "Jumlah unit",
+  admin_labelChargerType: "Jenis charger",
+  admin_labelAddress: "Alamat",
+  admin_labelLandArea: "Luas lahan",
+  admin_viewOnMap: "Lihat di peta",
+  admin_labelTimeline: "Waktu rencana",
+  admin_labelNotesMessage: "Catatan / pesan",
+  admin_signInDomainError: "Hanya akun @starvo.co.id, @moizasia.com, atau @electrifyindonesia.id yang dapat masuk.",
 };
 
 const en: TranslationKeys = {
@@ -253,6 +330,44 @@ const en: TranslationKeys = {
   ctaPrimary: "Get Consultation",
   ctaSecondary: "Get Consultation",
   footerConsent: "By submitting, you agree to be contacted by the Starvo team.",
+  admin_backToForm: "Back to form",
+  admin_leadsTitle: "Leads",
+  admin_loadingLeads: "Loading leads…",
+  admin_noLeadsYet: "No leads yet.",
+  admin_tableRef: "Ref",
+  admin_tableName: "Name",
+  admin_tableCompany: "Company",
+  admin_tableWhatsApp: "WhatsApp",
+  admin_tableInterest: "Interest",
+  admin_tableTimeline: "Timeline",
+  admin_tableSubmitted: "Submitted",
+  admin_backToLeads: "Back to leads",
+  admin_leadDetailTitle: "Lead detail",
+  admin_loadingLead: "Loading lead…",
+  admin_leadNotFound: "Lead not found.",
+  admin_reference: "Reference",
+  admin_submittedOn: "Submitted on",
+  admin_sectionContact: "Contact",
+  admin_sectionInterestPlan: "Interest & plan",
+  admin_sectionLocationDetails: "Location details",
+  admin_sectionTimelineNotes: "Timeline & notes",
+  admin_labelFullName: "Full name",
+  admin_labelCompany: "Company",
+  admin_labelWhatsApp: "WhatsApp",
+  admin_labelEmail: "Email",
+  admin_labelCity: "City",
+  admin_labelInterest: "Interest",
+  admin_labelHasLocation: "Has location?",
+  admin_labelLocationType: "Location type",
+  admin_labelBudget: "Budget",
+  admin_labelUnitsNeeded: "Units needed",
+  admin_labelChargerType: "Charger type",
+  admin_labelAddress: "Address",
+  admin_labelLandArea: "Land area",
+  admin_viewOnMap: "View on map",
+  admin_labelTimeline: "Timeline",
+  admin_labelNotesMessage: "Notes / message",
+  admin_signInDomainError: "Only @starvo.co.id, @moizasia.com, or @electrifyindonesia.id accounts can sign in.",
 };
 
 const zh: TranslationKeys = {
@@ -326,6 +441,44 @@ const zh: TranslationKeys = {
   ctaPrimary: "获取咨询",
   ctaSecondary: "获取咨询",
   footerConsent: "提交即表示您同意Starvo团队与您联系。",
+  admin_backToForm: "Back to form",
+  admin_leadsTitle: "Leads",
+  admin_loadingLeads: "Loading leads…",
+  admin_noLeadsYet: "No leads yet.",
+  admin_tableRef: "Ref",
+  admin_tableName: "Name",
+  admin_tableCompany: "Company",
+  admin_tableWhatsApp: "WhatsApp",
+  admin_tableInterest: "Interest",
+  admin_tableTimeline: "Timeline",
+  admin_tableSubmitted: "Submitted",
+  admin_backToLeads: "Back to leads",
+  admin_leadDetailTitle: "Lead detail",
+  admin_loadingLead: "Loading lead…",
+  admin_leadNotFound: "Lead not found.",
+  admin_reference: "Reference",
+  admin_submittedOn: "Submitted on",
+  admin_sectionContact: "Contact",
+  admin_sectionInterestPlan: "Interest & plan",
+  admin_sectionLocationDetails: "Location details",
+  admin_sectionTimelineNotes: "Timeline & notes",
+  admin_labelFullName: "Full name",
+  admin_labelCompany: "Company",
+  admin_labelWhatsApp: "WhatsApp",
+  admin_labelEmail: "Email",
+  admin_labelCity: "City",
+  admin_labelInterest: "Interest",
+  admin_labelHasLocation: "Has location?",
+  admin_labelLocationType: "Location type",
+  admin_labelBudget: "Budget",
+  admin_labelUnitsNeeded: "Units needed",
+  admin_labelChargerType: "Charger type",
+  admin_labelAddress: "Address",
+  admin_labelLandArea: "Land area",
+  admin_viewOnMap: "View on map",
+  admin_labelTimeline: "Timeline",
+  admin_labelNotesMessage: "Notes / message",
+  admin_signInDomainError: "Only @starvo.co.id, @moizasia.com, or @electrifyindonesia.id accounts can sign in.",
 };
 
 const ja: TranslationKeys = {
@@ -399,6 +552,44 @@ const ja: TranslationKeys = {
   ctaPrimary: "相談する",
   ctaSecondary: "相談する",
   footerConsent: "送信することで、Starvoチームからの連絡に同意したものとみなされます。",
+  admin_backToForm: "Back to form",
+  admin_leadsTitle: "Leads",
+  admin_loadingLeads: "Loading leads…",
+  admin_noLeadsYet: "No leads yet.",
+  admin_tableRef: "Ref",
+  admin_tableName: "Name",
+  admin_tableCompany: "Company",
+  admin_tableWhatsApp: "WhatsApp",
+  admin_tableInterest: "Interest",
+  admin_tableTimeline: "Timeline",
+  admin_tableSubmitted: "Submitted",
+  admin_backToLeads: "Back to leads",
+  admin_leadDetailTitle: "Lead detail",
+  admin_loadingLead: "Loading lead…",
+  admin_leadNotFound: "Lead not found.",
+  admin_reference: "Reference",
+  admin_submittedOn: "Submitted on",
+  admin_sectionContact: "Contact",
+  admin_sectionInterestPlan: "Interest & plan",
+  admin_sectionLocationDetails: "Location details",
+  admin_sectionTimelineNotes: "Timeline & notes",
+  admin_labelFullName: "Full name",
+  admin_labelCompany: "Company",
+  admin_labelWhatsApp: "WhatsApp",
+  admin_labelEmail: "Email",
+  admin_labelCity: "City",
+  admin_labelInterest: "Interest",
+  admin_labelHasLocation: "Has location?",
+  admin_labelLocationType: "Location type",
+  admin_labelBudget: "Budget",
+  admin_labelUnitsNeeded: "Units needed",
+  admin_labelChargerType: "Charger type",
+  admin_labelAddress: "Address",
+  admin_labelLandArea: "Land area",
+  admin_viewOnMap: "View on map",
+  admin_labelTimeline: "Timeline",
+  admin_labelNotesMessage: "Notes / message",
+  admin_signInDomainError: "Only @starvo.co.id, @moizasia.com, or @electrifyindonesia.id accounts can sign in.",
 };
 
 const ko: TranslationKeys = {
@@ -472,6 +663,44 @@ const ko: TranslationKeys = {
   ctaPrimary: "상담 받기",
   ctaSecondary: "상담 받기",
   footerConsent: "제출 시 Starvo 팀의 연락에 동의하는 것으로 간주됩니다.",
+  admin_backToForm: "Back to form",
+  admin_leadsTitle: "Leads",
+  admin_loadingLeads: "Loading leads…",
+  admin_noLeadsYet: "No leads yet.",
+  admin_tableRef: "Ref",
+  admin_tableName: "Name",
+  admin_tableCompany: "Company",
+  admin_tableWhatsApp: "WhatsApp",
+  admin_tableInterest: "Interest",
+  admin_tableTimeline: "Timeline",
+  admin_tableSubmitted: "Submitted",
+  admin_backToLeads: "Back to leads",
+  admin_leadDetailTitle: "Lead detail",
+  admin_loadingLead: "Loading lead…",
+  admin_leadNotFound: "Lead not found.",
+  admin_reference: "Reference",
+  admin_submittedOn: "Submitted on",
+  admin_sectionContact: "Contact",
+  admin_sectionInterestPlan: "Interest & plan",
+  admin_sectionLocationDetails: "Location details",
+  admin_sectionTimelineNotes: "Timeline & notes",
+  admin_labelFullName: "Full name",
+  admin_labelCompany: "Company",
+  admin_labelWhatsApp: "WhatsApp",
+  admin_labelEmail: "Email",
+  admin_labelCity: "City",
+  admin_labelInterest: "Interest",
+  admin_labelHasLocation: "Has location?",
+  admin_labelLocationType: "Location type",
+  admin_labelBudget: "Budget",
+  admin_labelUnitsNeeded: "Units needed",
+  admin_labelChargerType: "Charger type",
+  admin_labelAddress: "Address",
+  admin_labelLandArea: "Land area",
+  admin_viewOnMap: "View on map",
+  admin_labelTimeline: "Timeline",
+  admin_labelNotesMessage: "Notes / message",
+  admin_signInDomainError: "Only @starvo.co.id, @moizasia.com, or @electrifyindonesia.id accounts can sign in.",
 };
 
 const pt: TranslationKeys = {
@@ -545,6 +774,44 @@ const pt: TranslationKeys = {
   ctaPrimary: "Obter Consultoria",
   ctaSecondary: "Obter Consultoria",
   footerConsent: "Ao enviar, você concorda em ser contatado pela equipe Starvo.",
+  admin_backToForm: "Back to form",
+  admin_leadsTitle: "Leads",
+  admin_loadingLeads: "Loading leads…",
+  admin_noLeadsYet: "No leads yet.",
+  admin_tableRef: "Ref",
+  admin_tableName: "Name",
+  admin_tableCompany: "Company",
+  admin_tableWhatsApp: "WhatsApp",
+  admin_tableInterest: "Interest",
+  admin_tableTimeline: "Timeline",
+  admin_tableSubmitted: "Submitted",
+  admin_backToLeads: "Back to leads",
+  admin_leadDetailTitle: "Lead detail",
+  admin_loadingLead: "Loading lead…",
+  admin_leadNotFound: "Lead not found.",
+  admin_reference: "Reference",
+  admin_submittedOn: "Submitted on",
+  admin_sectionContact: "Contact",
+  admin_sectionInterestPlan: "Interest & plan",
+  admin_sectionLocationDetails: "Location details",
+  admin_sectionTimelineNotes: "Timeline & notes",
+  admin_labelFullName: "Full name",
+  admin_labelCompany: "Company",
+  admin_labelWhatsApp: "WhatsApp",
+  admin_labelEmail: "Email",
+  admin_labelCity: "City",
+  admin_labelInterest: "Interest",
+  admin_labelHasLocation: "Has location?",
+  admin_labelLocationType: "Location type",
+  admin_labelBudget: "Budget",
+  admin_labelUnitsNeeded: "Units needed",
+  admin_labelChargerType: "Charger type",
+  admin_labelAddress: "Address",
+  admin_labelLandArea: "Land area",
+  admin_viewOnMap: "View on map",
+  admin_labelTimeline: "Timeline",
+  admin_labelNotesMessage: "Notes / message",
+  admin_signInDomainError: "Only @starvo.co.id, @moizasia.com, or @electrifyindonesia.id accounts can sign in.",
 };
 
 const ar: TranslationKeys = {
@@ -618,6 +885,44 @@ const ar: TranslationKeys = {
   ctaPrimary: "احصل على استشارة",
   ctaSecondary: "احصل على استشارة",
   footerConsent: "بإرسالك، فإنك توافق على أن يتم التواصل معك من قبل فريق Starvo.",
+  admin_backToForm: "Back to form",
+  admin_leadsTitle: "Leads",
+  admin_loadingLeads: "Loading leads…",
+  admin_noLeadsYet: "No leads yet.",
+  admin_tableRef: "Ref",
+  admin_tableName: "Name",
+  admin_tableCompany: "Company",
+  admin_tableWhatsApp: "WhatsApp",
+  admin_tableInterest: "Interest",
+  admin_tableTimeline: "Timeline",
+  admin_tableSubmitted: "Submitted",
+  admin_backToLeads: "Back to leads",
+  admin_leadDetailTitle: "Lead detail",
+  admin_loadingLead: "Loading lead…",
+  admin_leadNotFound: "Lead not found.",
+  admin_reference: "Reference",
+  admin_submittedOn: "Submitted on",
+  admin_sectionContact: "Contact",
+  admin_sectionInterestPlan: "Interest & plan",
+  admin_sectionLocationDetails: "Location details",
+  admin_sectionTimelineNotes: "Timeline & notes",
+  admin_labelFullName: "Full name",
+  admin_labelCompany: "Company",
+  admin_labelWhatsApp: "WhatsApp",
+  admin_labelEmail: "Email",
+  admin_labelCity: "City",
+  admin_labelInterest: "Interest",
+  admin_labelHasLocation: "Has location?",
+  admin_labelLocationType: "Location type",
+  admin_labelBudget: "Budget",
+  admin_labelUnitsNeeded: "Units needed",
+  admin_labelChargerType: "Charger type",
+  admin_labelAddress: "Address",
+  admin_labelLandArea: "Land area",
+  admin_viewOnMap: "View on map",
+  admin_labelTimeline: "Timeline",
+  admin_labelNotesMessage: "Notes / message",
+  admin_signInDomainError: "Only @starvo.co.id, @moizasia.com, or @electrifyindonesia.id accounts can sign in.",
 };
 
 export const translations: Record<LocaleCode, TranslationKeys> = {
@@ -629,3 +934,9 @@ export const translations: Record<LocaleCode, TranslationKeys> = {
   pt,
   ar,
 };
+
+/** Admin pages use Bahasa Indonesia by default. Returns t(key) with id locale + en fallback. */
+export function getAdminT(): (key: keyof TranslationKeys) => string {
+  return (key: keyof TranslationKeys) =>
+    (translations.id[key] as string) ?? (translations.en[key] as string) ?? key;
+}
