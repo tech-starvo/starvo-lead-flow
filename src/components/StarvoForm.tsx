@@ -253,6 +253,7 @@ const StarvoForm = () => {
                 { value: "dc-ultra-60", label: "DC Ultra Fast Charger 60kW (2 Gun)" },
                 { value: "dc-ultra-80", label: "DC Ultra Fast Charger 80kW (2 Gun)" },
                 { value: "dc-ultra-120", label: "DC Ultra Fast Charger 120kW (2 Gun)" },
+                { value: "other", label: "Lainnya/Tidak Yakin" },
               ]}
             />
           </div>
