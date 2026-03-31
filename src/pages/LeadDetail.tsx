@@ -146,6 +146,9 @@ const LeadDetail = () => {
             <DetailRow label={t("admin_labelBudget")} value={lead.budget} />
             <DetailRow label={t("admin_labelUnitsNeeded")} value={lead.units} />
             <DetailRow label={t("admin_labelChargerType")} value={lead.charger_type} />
+            <DetailRow label="Daya listrik tersedia saat ini" value={lead.current_power_capacity} />
+            <DetailRow label="Parking Slot" value={lead.parking_slots} />
+            <DetailRow label="Estimasi Kendaraan" value={lead.estimated_vehicles} />
           </div>
         </motion.section>
 

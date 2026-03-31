@@ -105,6 +105,9 @@ const Admin = () => {
                   <TableHead>{t("admin_tableName")}</TableHead>
                   <TableHead>{t("admin_tableCompany")}</TableHead>
                   <TableHead>{t("admin_tableWhatsApp")}</TableHead>
+                  <TableHead>Daya Listrik</TableHead>
+                  <TableHead>Parking Slot</TableHead>
+                  <TableHead>Estimasi Kendaraan</TableHead>
                   <TableHead>{t("admin_tableInterest")}</TableHead>
                   <TableHead>{t("admin_tableTimeline")}</TableHead>
                   <TableHead className="text-right">{t("admin_tableSubmitted")}</TableHead>
@@ -131,6 +134,9 @@ const Admin = () => {
                     </TableCell>
                     <TableCell className="text-muted-foreground">{lead.company ?? "—"}</TableCell>
                     <TableCell>{lead.whatsapp}</TableCell>
+                    <TableCell>{lead.current_power_capacity ?? "—"}</TableCell>
+                    <TableCell>{lead.parking_slots ?? "—"}</TableCell>
+                    <TableCell>{lead.estimated_vehicles ?? "—"}</TableCell>
                     <TableCell>{lead.interest}</TableCell>
                     <TableCell>{lead.timeline ?? "—"}</TableCell>
                     <TableCell className="text-right text-muted-foreground text-xs">

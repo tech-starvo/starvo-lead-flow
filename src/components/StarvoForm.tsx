@@ -21,6 +21,9 @@ interface FormData {
   budget: string;
   units: string;
   chargerType: string;
+  currentPowerCapacity: string;
+  parkingSlots: string;
+  estimatedVehicles: string;
   address: string;
   landArea: string;
   mapPosition: [number, number] | null;
@@ -40,6 +43,9 @@ const initial: FormData = {
   budget: "",
   units: "",
   chargerType: "",
+  currentPowerCapacity: "",
+  parkingSlots: "",
+  estimatedVehicles: "",
   address: "",
   landArea: "",
   mapPosition: null,
@@ -85,6 +91,9 @@ const StarvoForm = () => {
       budget: form.budget || null,
       units: form.units || null,
       charger_type: form.chargerType || null,
+      current_power_capacity: form.currentPowerCapacity || null,
+      parking_slots: form.parkingSlots || null,
+      estimated_vehicles: form.estimatedVehicles || null,
       address: form.address || null,
       land_area: form.landArea || null,
       map_lat: form.mapPosition ? form.mapPosition[0] : null,
@@ -238,14 +247,48 @@ const StarvoForm = () => {
             <ChoiceGrid
               selected={form.chargerType}
               onSelect={(v) => set("chargerType", v)}
-              columns={3}
+              columns={2}
               choices={[
-                { value: "ac", label: t("chargerType_ac") },
-                { value: "dc", label: t("chargerType_dc") },
-                { value: "unsure", label: t("chargerType_unsure") },
+                { value: "dc-fast-30", label: "DC Fast Charger 30kW (1 Gun)" },
+                { value: "dc-ultra-60", label: "DC Ultra Fast Charger 60kW (2 Gun)" },
+                { value: "dc-ultra-80", label: "DC Ultra Fast Charger 80kW (2 Gun)" },
+                { value: "dc-ultra-120", label: "DC Ultra Fast Charger 120kW (2 Gun)" },
               ]}
             />
           </div>
+
+          <motion.div variants={fadeUp}>
+            <FieldLabel id="currentPowerCapacity" label="Daya listrik tersedia saat ini" optional optionalLabel={t("optional")} />
+            <input
+              id="currentPowerCapacity"
+              className="starvo-input"
+              value={form.currentPowerCapacity}
+              onChange={(e) => set("currentPowerCapacity", e.target.value)}
+              placeholder="Contoh: 66 kVA / 100 kVA"
+            />
+          </motion.div>
+
+          <motion.div variants={fadeUp}>
+            <FieldLabel id="parkingSlots" label="Parking Slot" optional optionalLabel={t("optional")} />
+            <input
+              id="parkingSlots"
+              className="starvo-input"
+              value={form.parkingSlots}
+              onChange={(e) => set("parkingSlots", e.target.value)}
+              placeholder="Contoh: 10 slot"
+            />
+          </motion.div>
+
+          <motion.div variants={fadeUp}>
+            <FieldLabel id="estimatedVehicles" label="Estimasi Kendaraan" optional optionalLabel={t("optional")} />
+            <input
+              id="estimatedVehicles"
+              className="starvo-input"
+              value={form.estimatedVehicles}
+              onChange={(e) => set("estimatedVehicles", e.target.value)}
+              placeholder="Contoh: 50 kendaraan/hari"
+            />
+          </motion.div>
         </div>
       </motion.div>
 

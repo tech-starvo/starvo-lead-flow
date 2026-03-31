@@ -24,6 +24,9 @@ export interface Lead {
   budget: string | null;
   units: string | null;
   charger_type: string | null;
+  current_power_capacity: string | null;
+  parking_slots: string | null;
+  estimated_vehicles: string | null;
   address: string | null;
   land_area: string | null;
   map_lat: number | null;
